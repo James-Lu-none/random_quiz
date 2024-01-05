@@ -20,10 +20,12 @@ with open(file_path, 'r', encoding='utf-8') as file:
         line = line.strip()
         if not line: continue
         bird_name, habit = line.split()
-        result=choose_bird_image_file(image_dir, bird_name)
-        if not result: continue
-        print(result)
-        observations.append((bird_name, habit, result))
+        try:
+            result=choose_bird_image_file(image_dir, bird_name)
+            # print(result)
+            observations.append((bird_name, habit, result))
+        except:
+            print(f"dir for {bird_name} not found")
 
 plt.ion()
 correct=0
