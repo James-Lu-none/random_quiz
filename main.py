@@ -2,7 +2,10 @@ import os
 import random
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
-
+import matplotlib
+from make_bird_dir import make_bird_dirs
+from extension_modifier import rename_files_extension
+matplotlib.use('TkAgg')
 def choose_bird_image_file(directory, bird_name):
     dir=os.path.join(directory, bird_name)
     files = [f for f in os.listdir(dir)]
@@ -13,6 +16,8 @@ def choose_bird_image_file(directory, bird_name):
 
 image_dir= './birds'
 file_path = './info.txt'
+make_bird_dirs()
+rename_files_extension()
 
 observations = []
 with open(file_path, 'r', encoding='utf-8') as file:
