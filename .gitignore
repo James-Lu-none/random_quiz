@@ -1,1 +1,5 @@
-./birds/*
+**/birds
+**/plants
+**/quiz
+**/dist
+**/build

@@ -36,12 +36,14 @@ plt.ion()
 correct=0
 random.shuffle(observations)
 print(f"loaded {len(observations)} questions")
+num = 0
 for obs in observations:
+    num=num+1
     name,habit,image_file = obs
     img = mpimg.imread(image_file)
     imgplot = plt.imshow(img)
     plt.show()
-    guess=input("name and habit? ")
+    guess=input(f"Q{num}. name and habit? ")
     answer=" ".join([name, habit])
     if(guess=='stop'): break
     if(answer==guess):
@@ -52,3 +54,4 @@ for obs in observations:
 plt.ioff()
 plt.close()
 print(f"quiz done, you got {correct}/{len(observations)}")
+os.system("pause")
